@@ -1,0 +1,90 @@
+body{
+  padding-top: 0;
+  font-family: ubuntu;
+}
+nav {
+  background-color: transparent;
+}
+nav ul a,
+nav .brand-logo {
+  color: #ff9800;
+}
+.brand-logo{
+  font-family: pacifico;
+  font-weight: bolder;
+}
+p {
+  line-height: 2rem;
+}
+h6{
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+.search-container{
+  display: flex;
+  border: 1px solid #ff9800;
+  border-radius: 2px;
+  padding: 0 !important;
+  margin: 0;
+}
+i.prefix.active, label.active {
+  color: #ff9800 !important;
+}
+.search-container > input{
+  margin-right: 3px;
+  margin-bottom: 0;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+input:focus, textarea:focus{
+  border-bottom: 1px solid #ff9800 !important;
+  box-shadow: 0 1px 0 0 #ff9800 !important;
+}
+.search-container > button.btn{
+  box-sizing: border-box;
+  /*padding: 2px 2rem !important;*/
+  height: 46px;
+  line-height: 46px;
+}
+.block{
+  display: block;
+  width: 100%;
+}
+.justify{
+  text-align: justify;
+}
+
+@media only screen and (max-width : 992px) {
+ /* .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }*/
+}
+
+@media only screen and (max-width : 600px) {
+  #sidenav-overlay{
+    z-index: 0 !important;
+  }
+  /*#index-banner .section {
+    top: 0;
+  }
+  .photo{
+    width: 150px;
+  }
+  h1{
+    font-size: 2em;
+  }*/
+}
+
+@media print {
+  footer.page-footer{
+    display: none;
+  }
+}
+
+footer.page-footer {
+  margin: 0;
+}
