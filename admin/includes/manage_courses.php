@@ -7,6 +7,10 @@
 ?>
 <section class="col s12 m6 offset-m3">
   <h3 class="center-align">Manage Courses</h3>
+  <div class="center-align">
+    <a class="btn accent-1" href="admin.php?action=add_course">Add Course</a>
+  </div>
+  <hr>
 	<table class="bordered striped">
     <thead>
       <tr>

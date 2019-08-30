@@ -8,8 +8,9 @@
 			$name = trim($_POST["name"]);
 			$email = trim($_POST["email"]);
 			$phone = trim($_POST["phone"]);
+			$password = md5(stripcslashes(trim($_POST["password"])));
 
-			$sql = "INSERT INTO counselors(course_id, name, email, phone) VALUES('$c_id', '$name', '$email', '$phone')";
+			$sql = "INSERT INTO counselors(course_id, name, email, phone, password) VALUES('$c_id', '$name', '$email', '$phone', '$password')";
 
 			if (mysqli_query($dbc, $sql)) {
 			echo "<div class='chip light-blue lighten-2 z-depth-1 hoverable'>Counselor added sucessfully<i class='close mdi mdi-close'></i></div>";
@@ -51,6 +52,11 @@
         <i class="mdi mdi-phone prefix"></i>
         <input id="phone" type="tel" class="validate" name="phone" required>
         <label for="phone">Counselor Phone:</label>
+      </div>
+      <div class="input-field">
+        <i class="mdi mdi-lock prefix"></i>
+        <input id="password" type="password" class="validate" name="password" required>
+        <label for="password">Password:</label>
       </div>
       <br>
       <button class="btn waves-effect hoverable waves-light block teal btn-large" type="submit" name="add_counselor">Add Counselor</button>

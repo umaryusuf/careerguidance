@@ -7,6 +7,10 @@
 ?>
 <section class="col s12 m8 offset-m2">
   <h3 class="center-align">Manage Career</h3>
+  <div class="center-align">
+    <a class="btn accent-1" href="admin.php?action=add_course_career">Add Career</a>
+  </div>
+  <hr>
 	<table class="bordered striped">
     <thead>
       <tr>

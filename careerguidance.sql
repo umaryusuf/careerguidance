@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 15, 2017 at 11:18 PM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- Host: localhost:3306
+-- Generation Time: Aug 26, 2019 at 07:47 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -81,19 +81,22 @@ CREATE TABLE `counselors` (
   `course_id` int(11) NOT NULL,
   `name` varchar(200) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `phone` varchar(20) NOT NULL
+  `phone` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `counselors`
 --
 
-INSERT INTO `counselors` (`id`, `course_id`, `name`, `email`, `phone`) VALUES
-(1, 1, 'Mr. Isaac Moses', 'isaacmoses@gmail.com', '06021345611'),
-(2, 3, 'Mr. John Robert', 'johnrobert@gmail.com', '06087876565'),
-(3, 4, 'Musa Bello', 'bellomusa@site.com', '06043214321'),
-(4, 5, 'Muhammad Ahmad', 'mahmad@site.com', '06098765432'),
-(5, 6, 'Mr. Sunusa Musa', 'smusa@site.com', '06023456712');
+INSERT INTO `counselors` (`id`, `course_id`, `name`, `email`, `phone`, `password`) VALUES
+(1, 1, 'Mr. Isaac Moses', 'isaacmoses@gmail.com', '06021345611', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(2, 3, 'Mr. John Robert', 'johnrobert@gmail.com', '06087876565', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(3, 4, 'Musa Bello', 'bellomusa@site.com', '06043214321', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(4, 5, 'Muhammad Ahmad', 'mahmad@site.com', '06098765432', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(5, 6, 'Mr. Sunusa Musa', 'smusa@site.com', '06023456712', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(6, 5, 'Umar Farooq', 'umar@site.com', '08089897676', '5f4dcc3b5aa765d61d8327deb882cf99'),
+(7, 4, 'Jane Doe', 'jane@doe.com', '0978766576', 'a8c0d2a9d332574951a8e4a0af7d516f');
 
 -- --------------------------------------------------------
 
@@ -145,6 +148,53 @@ INSERT INTO `institutions` (`institution_id`, `institution_name`, `website`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(10) NOT NULL,
+  `sender` varchar(255) NOT NULL,
+  `receiver` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `viewed` int(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `sender`, `receiver`, `content`, `viewed`) VALUES
+(1, '1EJMPFR6LUg5QnxnFZUDsGrbX28EkEb3va', '6', 'Hello My I will like you to give me counsell on computer science', 0),
+(2, '6', '1EJMPFR6LUg5QnxnFZUDsGrbX28EkEb3va', 'Hi Musa, Nice to meet you', 0),
+(3, '1EJMPFR6LUg5QnxnFZUDsGrbX28EkEb3va', '6', 'Thanks for your feedback', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `questions`
+--
+
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `opt1` varchar(200) NOT NULL,
+  `opt2` varchar(200) NOT NULL,
+  `answer` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`id`, `question`, `opt1`, `opt2`, `answer`) VALUES
+(1, 'When does Nigeria got its independent?', '1st October 1960', '1st January 2000', '1st October 1960'),
+(2, 'Who was the president of Nigeria in 2007?', 'Chief Olusegun Obasanjo', 'Goodluck Ebele Jonathan', 'Chief Olusegun Obasanjo'),
+(3, 'Who is the current president of Nigeria?', 'Muhammad Buhari', 'Atiku Abubakar', 'Muhammad Buhari'),
+(4, 'What are nouns?', 'Nouns are names', 'Action words', 'Nouns are names');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `requirements`
 --
 
@@ -168,6 +218,48 @@ INSERT INTO `requirements` (`req_id`, `institution_id`, `course_id`, `jamb_subje
 (4, 3, 5, 'math, english, physics, chemistry or biology', 190, 'math, english, physics, chemistry, biology'),
 (5, 5, 5, 'math, english, physics, chemistry or biology', 150, 'math, english, physics, chemistry, biology'),
 (6, 4, 5, 'math, english, physics, chemistry or biology', 195, 'math, english, physics, chemistry, biology');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `scores`
+--
+
+CREATE TABLE `scores` (
+  `id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `answer` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `scores`
+--
+
+INSERT INTO `scores` (`id`, `student_id`, `question`, `answer`) VALUES
+(1, 1, 'When does Nigeria got its independent?', '1st October 1960');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `id` int(10) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `student_id` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `fullname`, `email`, `phone`, `password`, `student_id`) VALUES
+(1, 'Sani Musa', 'sanimusa@site.com', '0809898980', '5f4dcc3b5aa765d61d8327deb882cf99', '1EJMPFR6LUg5QnxnFZUDsGrbX28EkEb3va');
 
 --
 -- Indexes for dumped tables
@@ -204,10 +296,34 @@ ALTER TABLE `institutions`
   ADD PRIMARY KEY (`institution_id`);
 
 --
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `requirements`
 --
 ALTER TABLE `requirements`
   ADD PRIMARY KEY (`req_id`);
+
+--
+-- Indexes for table `scores`
+--
+ALTER TABLE `scores`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -218,31 +334,61 @@ ALTER TABLE `requirements`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `career`
 --
 ALTER TABLE `career`
   MODIFY `career_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `counselors`
 --
 ALTER TABLE `counselors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
   MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `institutions`
 --
 ALTER TABLE `institutions`
   MODIFY `institution_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `requirements`
 --
 ALTER TABLE `requirements`
   MODIFY `req_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `scores`
+--
+ALTER TABLE `scores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

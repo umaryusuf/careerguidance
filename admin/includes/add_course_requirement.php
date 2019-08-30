@@ -56,7 +56,7 @@
 
 		if(!$error){
 
-			$sql = "INSERT INTO requirements(`id`,`course_id`, `jamb_subjects`, `jamb_score`, `waec_passes`) VALUES('$id', '$course_id', '$jamb_subjects', '$jamb_score', '$waec_subjects')";
+			$sql = "INSERT INTO requirements(`institution_id`,`course_id`, `jamb_subjects`, `jamb_score`, `waec_passes`) VALUES('$id', '$course_id', '$jamb_subjects', '$jamb_score', '$waec_subjects')";
 
 			if (mysqli_query($dbc, $sql)) {
 				echo "<div class='chip light-blue lighten-2 z-depth-1 hoverable'>Course requirements added sucessfully<i class='close mdi mdi-close'></i></div>";
@@ -93,7 +93,7 @@
 			      	$sql = "SELECT * FROM `institutions`";
 			      	$query = @mysqli_query($dbc, $sql);
 			      	while ($data = mysqli_fetch_array($query)) {
-			      		$id = $data["id"];
+			      		$id = $data["institution_id"];
 			      		$institution_name = $data["institution_name"];
 			      ?>
 			      <option value="<?php echo $id; ?>"><?php echo $institution_name; ?></option>

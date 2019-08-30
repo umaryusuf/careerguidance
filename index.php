@@ -20,8 +20,8 @@
 	<div id="index-banner" class="parallax-container">
     <div  class="section no-pad-bot">
       <div class="container center">
-        <h1 class="header center orange-text lighten-2">Career Guidance</h1>
-        <p class="white-text lighten-2">Not sure about what to study or a course requirement? Career guidance is a platform that provide the courses aligned to a career, the tertiary institution to attend, the JAMB subject combination, the WAEC pases required to attend the course, and the job opportunities aligned to the chosen line of career.</p>
+        <h1 class="header center orange-text lighten-2 main">Career Guidance</h1>
+        <h5 class="white-text lighten-2 para">Not sure about what to study or a course requirement? Career guidance is a platform that provide the courses aligned to a career, the tertiary institution to attend, the JAMB subject combination, the WAEC pases required to attend the course, and the job opportunities aligned to the chosen line of career.</h5>
         <div class="row center">
           <form action="search_result.php" method="get" enctype="multipart/form-data">
           	<div class="row">

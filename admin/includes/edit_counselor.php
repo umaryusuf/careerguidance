@@ -13,8 +13,14 @@ $row = mysqli_fetch_array($query);
 			$name = trim($_POST["name"]);
 			$email = trim($_POST["email"]);
 			$phone = trim($_POST["phone"]);
+			$password = stripcslashes(trim($_POST["password"]));
 
-			$sql = "UPDATE counselors SET course_id='$c_id', name='$name', email='$email', phone='$phone' WHERE id='$cid'";
+			if(!empty($password)) {
+				$password = md5($password);
+				$sql = "UPDATE counselors SET course_id='$c_id', name='$name', email='$email', phone='$phone', password='$password' WHERE id='$cid'";
+			} else {
+				$sql = "UPDATE counselors SET course_id='$c_id', name='$name', email='$email', phone='$phone' WHERE id='$cid'";
+			}
 
 			if (mysqli_query($dbc, $sql)) {
 			echo "<div class='chip light-blue lighten-2 z-depth-1 hoverable'>Counselor updated sucessfully<i class='close mdi mdi-close'></i></div>";
@@ -62,6 +68,11 @@ $row = mysqli_fetch_array($query);
         <i class="mdi mdi-phone prefix"></i>
         <input id="phone" type="tel" class="validate" name="phone" value="<?php echo $row['phone']; ?>" required>
         <label for="phone">Counselor Phone:</label>
+      </div>
+      <div class="input-field">
+        <i class="mdi mdi-lock prefix"></i>
+        <input id="password" type="password" class="validate" name="password" value="">
+        <label for="password">Password (optional):</label>
       </div>
       <br>
       <button class="btn waves-effect hoverable waves-light block teal btn-large" type="submit" name="edit_counselor">Update Counselor</button>

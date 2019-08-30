@@ -14,11 +14,8 @@
 
   $sql = mysqli_query($dbc, "SELECT password FROM admin WHERE id='$id'");
   $row = mysqli_fetch_array($sql);
-  $row["password"];
-
-
-  
-
+	$row["password"];
+	
 ?>
 
 <section class="col m4 offset-m4">

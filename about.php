@@ -30,8 +30,8 @@
 	  			<img src="images/img14.jpg" class="responsive-img" alt="career image">
 	  		</div>
 	  		<div class="col m7">
-	  			<h4>Some header</h4>
-	  			<h6>Some text content</h6>
+	  			<h4>Your career matter</h4>
+	  			<h6>Why career guidance</h6>
 	  			<p class="justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius a, nesciunt laboriosam vel sapiente labore iusto quibusdam provident unde, tempora libero eos earum dolorum repudiandae suscipit deserunt veritatis quo. consectetur adipisicing elit. Eius a, nesciunt laboriosam vel sapiente labore </p>
 	  		</div>
 	  	</div>

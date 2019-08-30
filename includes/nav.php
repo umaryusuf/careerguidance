@@ -7,14 +7,16 @@
 				<ul class="right hide-on-med-and-down">
 					<li class="<?php echo ($page_title == 'home') ? 'active' : '' ?>"><a href="index.php">Home</a></li>
 					<li class="<?php echo ($page_title == 'about') ? 'active' : '' ?>"><a href="about.php">About</a></li>
-					<li class="<?php echo ($page_title == 'test') ? 'active' : '' ?>"><a href="test.php">Test</a></li>
+					<li class="<?php echo ($page_title == 'student') ? 'active' : '' ?>"><a href="student_login.php">Student</a></li>
+					<li class="<?php echo ($page_title == 'counsellor') ? 'active' : '' ?>"><a href="counsellor_login.php">Counsellor</a></li>
 					<li class="<?php echo ($page_title == 'contact') ? 'active' : '' ?>"><a href="contact.php">Contact</a></li>
 				</ul>
 				<!-- navbar for mobile -->
 				<ul class="side-nav" id="mobile">
 					<li class="<?php echo ($page_title == 'home') ? 'active' : '' ?>"><a href="index.php">Home</a></li>
 					<li class="<?php echo ($page_title == 'about') ? 'active' : '' ?>"><a href="about.php">About</a></li>
-					<li class="<?php echo ($page_title == 'test') ? 'active' : '' ?>"><a href="test.php">Test</a></li>
+					<li class="<?php echo ($page_title == 'student') ? 'active' : '' ?>"><a href="student_login.php">Student</a></li>
+					<li class="<?php echo ($page_title == 'counsellor') ? 'active' : '' ?>"><a href="counsellor_login.php">Counsellor</a></li>
 					<li class="<?php echo ($page_title == 'contact') ? 'active' : '' ?>"><a href="contact.php">Contact</a></li>
 				</ul>
 			</div>

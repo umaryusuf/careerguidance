@@ -16,6 +16,12 @@ nav .brand-logo {
 p {
   line-height: 2rem;
 }
+h1.main {
+  text-shadow: 3px 4px 2px #000 !important;
+}
+h5.para {
+  text-shadow: 3px 4px 2px #000 !important;
+}
 h6{
   font-weight: bold;
   line-height: 1.5rem;
